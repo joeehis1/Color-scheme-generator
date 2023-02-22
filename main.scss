@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Playfair+Display:wght@800&display=swap');
+
+
+*, *::after, *::before{
+    box-sizing: border-box;
+
+}
+
+body{
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    
+    margin-inline: auto;
+    min-height: 100vh;
+}
+
+h1{
+    margin: 0;
+}
+
+h2{margin-top: 0;}
+
+
+
+h1,h2{
+    font-family: 'Playfair Display', serif;
+    text-transform: capitalize;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+
+}
+
+
+header{
+    text-align: center;
+    padding-block: 3rem;
+}
+
+.container{
+    max-width: 550px;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.custom{
+    border: 2px solid;
+    position: relative;
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+
+    &:hover{
+        border-color: hsla(243, 75%, 59%, 1);
+    }
+
+    select{
+        display: none;
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        &:after{
+            content: ('⛛');
+            display: inline-block;
+            
+        }
+    }
+    .list-wrapper{
+        background-color: hsla(0, 0%, 100%, 1);
+        position: absolute;
+        left: -0.4%;
+        right: 0;
+        top: 100%;
+        border: 2px solid;
+        border-radius: 6px;
+        display: none;
+    }
+    .label, .option{
+        cursor: default;
+    }
+    .option{
+        display: flex;
+        justify-content: space-between;
+        padding: 0.3rem 0.8rem;
+        cursor:default;
+
+        &::after{
+            color: hsla(243, 75%, 59%, 1)
+        }
+
+        &:hover{
+            background-color: darken(white, 30%);
+            color: lighten(black, 10%);
+
+            &::after{
+                content: ('✓');
+                
+            }
+        }
+    }
+}
+
+.custom[data-open]{
+    .list-wrapper{
+        display: initial;
+    }
+
+    .header::after{
+        transform: rotate(180deg);
+    }
+
+    .option[data-selected]{
+        &:after{
+            content: ('✓');
+        }
+    }
+}
+
+.color-options{
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: auto 1fr 0.6fr;
+    
+
+    input{
+        padding: 0rem;
+        min-height: 2.1rem;
+        border-color: transparent;
+    }
+    
+
+    button{
+        border-radius: 6px;
+        
+    }
+
+    input, button{
+        border:1px solid hsla(216, 12%, 84%, 1);
+        text-transform:capitalize;
+    }
+
+
+}
+
+.scheme-output{
+    display: flex;
+    margin-top: 1.2rem;
+    justify-content: center;
+}
+
+
+.display{
+    padding-block: 8rem;
+    padding-inline: 2rem;
+    background-color: #F55A5A;
+}
