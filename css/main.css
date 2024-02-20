@@ -1,133 +1,172 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Playfair+Display:wght@800&display=swap");
-*, *::after, *::before {
-  box-sizing: border-box;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Oswald", sans-serif;
-  margin-inline: auto;
-  min-height: 100vh;
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+    margin-inline: auto;
+    min-height: 100vh;
 }
 
 h1 {
-  margin: 0;
+    margin: 0;
 }
 
 h2 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
-h1, h2 {
-  font-family: "Playfair Display", serif;
-  text-transform: capitalize;
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+    text-transform: capitalize;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 header {
-  text-align: center;
-  padding-block: 3rem;
+    text-align: center;
+    padding-block: 3rem;
 }
 
 .container {
-  max-width: 550px;
-  width: 90%;
-  margin-inline: auto;
+    max-width: 550px;
+    width: 90%;
+    margin-inline: auto;
 }
 
 .custom {
-  border: 2px solid;
-  position: relative;
-  border-radius: 6px;
-  padding: 0.3rem 0.8rem;
+    border: 2px solid;
+    position: relative;
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
 }
 .custom:hover {
-  border-color: hsl(243deg, 75%, 59%);
+    border-color: hsl(243deg, 75%, 59%);
 }
 .custom select {
-  display: none;
+    display: none;
 }
 .custom .header {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .custom .header:after {
-  content: "⛛";
-  display: inline-block;
+    content: "⛛";
+    display: inline-block;
 }
 .custom .list-wrapper {
-  background-color: hsl(0deg, 0%, 100%);
-  position: absolute;
-  left: -0.4%;
-  right: 0;
-  top: 100%;
-  border: 2px solid;
-  border-radius: 6px;
-  display: none;
+    background-color: hsl(0deg, 0%, 100%);
+    position: absolute;
+    left: -0.4%;
+    right: 0;
+    top: 100%;
+    border: 2px solid;
+    border-radius: 6px;
+    display: none;
 }
-.custom .label, .custom .option {
-  cursor: default;
+.custom .label,
+.custom .option {
+    cursor: default;
 }
 .custom .option {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.3rem 0.8rem;
-  cursor: default;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0.8rem;
+    cursor: default;
 }
 .custom .option::after {
-  color: hsl(243deg, 75%, 59%);
+    color: hsl(243deg, 75%, 59%);
 }
 .custom .option:hover {
-  background-color: #b3b3b3;
-  color: #1a1a1a;
+    background-color: #b3b3b3;
+    color: #1a1a1a;
 }
 .custom .option:hover::after {
-  content: "✓";
+    content: "✓";
 }
 
 .custom[data-open] .list-wrapper {
-  display: initial;
+    display: initial;
 }
 .custom[data-open] .header::after {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 .custom[data-open] .option[data-selected]:after {
-  content: "✓";
+    content: "✓";
 }
 
 .color-options {
-  display: grid;
-  gap: 0.6rem;
-  grid-template-columns: auto 1fr 0.6fr;
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: auto 1fr 0.6fr;
 }
 .color-options input {
-  padding: 0rem;
-  min-height: 2.1rem;
-  border-color: transparent;
+    padding: 0rem;
+    min-height: 2.1rem;
+    border-color: transparent;
 }
 .color-options button {
-  border-radius: 6px;
+    border-radius: 6px;
+    cursor: pointer;
 }
-.color-options input, .color-options button {
-  border: 1px solid hsl(216deg, 12%, 84%);
-  text-transform: capitalize;
+.color-options button:hover {
+    border-radius: 6px;
+    background-color: hsl(243deg, 75%, 59%);
+    color: hsl(216deg, 12%, 84%);
+    cursor: pointer;
+}
+.color-options input,
+.color-options button {
+    border: 1px solid hsl(216deg, 12%, 84%);
+    text-transform: capitalize;
 }
 
 .scheme-output {
-  display: flex;
-  margin-top: 1.2rem;
-  justify-content: center;
+    display: grid;
+    margin-top: 1.2rem;
+    grid-template-columns: repeat(6, 1fr);
+    margin-inline: auto;
+}
+
+.output {
+    position: relative;
+}
+
+.output:hover .title {
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
 }
 
 .display {
-  padding-block: 8rem;
-  padding-inline: 2rem;
-  background-color: #F55A5A;
+    min-height: 18rem;
+}
+
+.output .title {
+    writing-mode: vertical-lr;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -25%);
+    background-color: aliceblue;
+    padding: 0.2rem;
+    height: 6rem;
+    margin: 0;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 350ms ease;
+    cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
